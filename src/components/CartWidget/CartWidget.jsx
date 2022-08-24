@@ -10,7 +10,7 @@ const CartWidget = () => {
             <a href="#action3">
                 <Button variant="secondary">
                 <img src={cart4} alt="carro"></img>
-                <Badge bg="primary">0</Badge>
+                <Badge bg="">0</Badge>
                 </Button>
             </a>
         </div>
@@ -18,5 +18,3 @@ const CartWidget = () => {
 }
 
 export default CartWidget;
-
-
