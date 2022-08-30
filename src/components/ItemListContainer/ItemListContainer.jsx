@@ -1,14 +1,23 @@
-import Badge from 'react-bootstrap/Badge';
-import Button from 'react-bootstrap/Button';
+import { useState } from "react";
+import ItemCount from '../ItemCount/ItemCount' ;
+import CartWidget from "../CartWidget/CartWidget";
 
 const ItemListContainer = () => {
+    const [cart, setCart] = useState([])
+
+    const onAdd = () => {
+        console.log('Listo, tu producto esta en el carrito');
+        setCart([...cart, 'lo que sea']);
+    }
+
     return (
         <div>
-            <a href="#action4">
-            <Button className='my-3'  variant='warning'>aqui ira el contador con botón</Button>
-            <br />
-            <Badge>0</Badge>
-            </a>
+            <div>
+            <CartWidget cartCount={cart.length}/>
+            </div>
+            <div>
+                <ItemCount stock={10} initial={1} onAdd={onAdd} />
+            </div>
         </div>
     )
 }

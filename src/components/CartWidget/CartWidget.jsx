@@ -1,16 +1,15 @@
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 //icono
-import cart4 from './img/cart4.svg';
+import {BsCart4} from "react-icons/bs";
 
-
-const CartWidget = () => {
+const CartWidget = ({cartCount}) => {
     return (
         <div>
             <a href="#action3">
                 <Button variant="secondary">
-                <img src={cart4} alt="carro"></img>
-                <Badge bg="">0</Badge>
+                <BsCart4/>
+                <Badge bg="">{cartCount}</Badge>
                 </Button>
             </a>
         </div>

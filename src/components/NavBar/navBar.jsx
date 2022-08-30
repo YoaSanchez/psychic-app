@@ -3,8 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { BsSearch } from "react-icons/bs";
+
+//Componentes
 import CartWidget from '../CartWidget/CartWidget';
-import lupa from './img/search.svg'
+
+//imagenes
 import logo from './img/pngegg.png'
 
 function NavBar() {
@@ -21,12 +25,12 @@ function NavBar() {
             <Nav.Link href="#action2">Quienes somos</Nav.Link>
           </Nav>
 
-          <CartWidget />
+          <CartWidget cartCount={0}/>
           
           <Form className="p-3 d-flex">
             <Form.Control type="search" placeholder="Buscar" className="me-2" aria-label="Search" />
-            <Button variant="outline-success">
-                <img src={lupa} alt="Buscar" />
+            <Button variant="secondary">
+                <BsSearch value={{ color: "blue"}}/>
             </Button>
           </Form>
         </Navbar.Collapse>
