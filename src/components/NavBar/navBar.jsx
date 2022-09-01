@@ -16,7 +16,7 @@ function NavBar() {
     <Navbar bg="secondary" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#action0">
-            <img className='logo' src={logo} alt="logo" />
+          <img className='logo' src={logo} alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -25,16 +25,16 @@ function NavBar() {
             <Nav.Link href="#action2">Quienes somos</Nav.Link>
           </Nav>
 
-          <CartWidget cartCount={0}/>
-          
+          <CartWidget cartCount={0} />
+
           <Form className="p-3 d-flex">
             <Form.Control type="search" placeholder="Buscar" className="me-2" aria-label="Search" />
             <Button variant="secondary">
-                <BsSearch value={{ color: "blue"}}/>
+              <BsSearch value={{ color: "blue" }} />
             </Button>
           </Form>
         </Navbar.Collapse>
-        
+
       </Container>
     </Navbar>
   );
