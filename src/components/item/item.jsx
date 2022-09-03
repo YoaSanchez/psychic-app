@@ -1,49 +1,31 @@
-import { useEffect, useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Col from 'react-bootstrap/Col';
 
-const Item = () => {
-    const [cards, setCards] = useState([]);
 
-    const searchCards = async () => {
 
-        try {
-            const response = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=poni`)
-            const data = await response.json();
-            setCards(data.results)
-        } catch (e) {
-            console.log(e)
-        }
-    }
-    useEffect(() => {
-        searchCards()
-    })
+
+
+const Item = ({ card }) => {
 
     return (
-        <div>
-            {cards.map((card) => {
-                return (
-                    <div>
-                        <h3>
-                        {card.title}
-                        </h3>
-                        <div>
-                            <img src={card.thumbnail} alt={card.title} />
-                            <div>
-                                boton detalles
-                            </div>
-                        </div>
-                        <div>
-                        {card.available_quantity}
-                        </div>
-                        <div>
-                            <ItemCount stock={card.available_quantity} initial={1}/>
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
+        <Col>
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={card.thumbnail} />
+                <Card.Body>
+                    <Card.Title>{card.title}</Card.Title>
+                    <ListGroup className="list-group-flush">
+                        <Button variant="primary">Detalles</Button>
+                        <ListGroup.Item>precio: ${card.price}</ListGroup.Item>
+                        <ListGroup.Item>Stock: {card.available_quantity}</ListGroup.Item>
+                    </ListGroup>
+                    <ItemCount stock={card.available_quantity} initial={1} />
+                </Card.Body>
+            </Card>
+        </Col>
     )
 }
 
 export default Item;
-

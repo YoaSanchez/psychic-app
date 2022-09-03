@@ -1,11 +1,14 @@
 import Item from "../item/item";
 
-
-const ItemList = () => {
+const ItemList = ({cards}) => {
 
     return (
         <div>
-            <Item />
+            {
+                cards.map(card => {
+                    return <Item card={card} />
+                })
+            }
         </div>
     )
 }

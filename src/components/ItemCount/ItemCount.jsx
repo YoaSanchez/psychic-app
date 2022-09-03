@@ -34,7 +34,9 @@ function ItemCount({ stock, initial }) {
             </div>
             <div>
                 <button onClick={() => {
-                    setCart([...cart, 'Item']);
+                    if (stock > cart.length) {
+                        setCart([...cart, 'Item']);
+                    }
                 }} >Agregar al carrito</button>
             </div>
         </div>
