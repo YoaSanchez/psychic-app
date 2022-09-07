@@ -8,15 +8,12 @@ import { BsSearch } from "react-icons/bs";
 //Componentes
 import CartWidget from '../CartWidget/CartWidget';
 
-//imagenes
-import logo from './img/pngegg.png'
-
 function NavBar() {
   return (
     <Navbar bg="secondary" expand="lg">
       <Container fluid>
         <Navbar.Brand href="#action0">
-          <img className='logo' src={logo} alt="logo" />
+          <img className='logo' src="/pngegg.png" alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

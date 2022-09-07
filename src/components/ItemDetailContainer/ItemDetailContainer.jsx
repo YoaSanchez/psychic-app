@@ -1,30 +1,28 @@
 import { useEffect, useState } from "react";
-import ItemList from '../itemList/itemList';
 
-const ItemListContainer = () => {
+import ItemDetail from "../ItemDetail/ItemDetail";
+
+const ItemDetailContainer = () => {
     const [cards, setCards] = useState([])
 
     const searchCards = async () => {
 
         try {
-            const response = await fetch(`https://api.mercadolibre.com/sites/MLC/search?q=teclado`)
+            const response = await fetch(`https://api.mercadolibre.com/items/MLC600319788`)
             const data = await response.json();
-            setCards(data.results)
+            setCards(data)
         } catch (e) {
             console.log(e)
         }
         console.log(cards)
     }
     useEffect(() => {
-        searchCards()
+        searchCards() // eslint-disable-next-line
     }, [])
 
     return (
-
-        <div>
-            <ItemList cards={cards} />
-        </div>
+            <ItemDetail cards={cards}/>
     )
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer;
