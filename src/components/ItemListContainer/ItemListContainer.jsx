@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Container } from "react-bootstrap";
 import ItemList from '../itemList/itemList';
 
 const ItemListContainer = () => {
@@ -16,14 +17,13 @@ const ItemListContainer = () => {
         console.log(cards)
     }
     useEffect(() => {
-        searchCards()
+        searchCards() // eslint-disable-next-line
     }, [])
 
     return (
-
-        <div>
+        <Container>
             <ItemList cards={cards} />
-        </div>
+        </Container>
     )
 }
 

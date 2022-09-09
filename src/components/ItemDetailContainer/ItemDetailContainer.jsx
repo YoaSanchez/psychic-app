@@ -1,27 +1,29 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
-    const [cards, setCards] = useState([])
+    const [card, setCard] = useState([])
 
-    const searchCards = async () => {
+    const { itemId } = useParams();
+
+    const searchCard = async () => {
 
         try {
-            const response = await fetch(`https://api.mercadolibre.com/items/MLC600319788`)
+            const response = await fetch(`https://api.mercadolibre.com/items/${itemId}`)
             const data = await response.json();
-            setCards(data)
+            setCard(data)
         } catch (e) {
             console.log(e)
         }
-        console.log(cards)
     }
     useEffect(() => {
-        searchCards() // eslint-disable-next-line
+        searchCard() // eslint-disable-next-line
     }, [])
 
     return (
-            <ItemDetail cards={cards}/>
+        <ItemDetail card={card} />
     )
 }
 

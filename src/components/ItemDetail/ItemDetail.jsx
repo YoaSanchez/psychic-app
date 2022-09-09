@@ -1,25 +1,26 @@
 import { Col, Container, Row } from "react-bootstrap"
 import ItemCount from "../ItemCount/ItemCount"
 
-const ItemDetail = ({ cards }) => {
+const ItemDetail = ({ card }) => {
 
     return (
-        <Container key={cards.id}>
+        <Container key={card.id}>
             <Row>
                 <Col>
-                    <img src={cards.thumbnail} alt={cards.title} />
+                    <img src={card.thumbnail} alt={card.title} />
                 </Col>
                 <Col>
-                    <h2>{cards.title}</h2>
-                    <div>SKU: {cards.id}</div>
-                    <div>Stock: {cards.available_quantity}</div>
-                    <div>Precio: ${cards.price}</div>
-                    <ItemCount stock={cards.available_quantity} initial={1} onAdd={cards.title} />
+                    <h2>{card.title}</h2>
+                    <div>SKU: {card.id}</div>
+                    <div>Stock: {card.initial_quantity}</div>
+                    {/* cambie available_quantity por initial_quantity para que funcione, cuando se arregle la api lo vuelvo a cambiar*/}
+                    <div>Precio: ${card.price}</div>
+                    <ItemCount stock={card.initial_quantity} initial={1} onAdd={card.title} />
                 </Col>
             </Row>
             <div>
                 <h4>
-                    cards.description
+                    card.description
                 </h4>
                 <div>
                     aqui deberia estar alguna descripcion pero en la api no hay de donde encontrarla, asique lo resolvere despues.

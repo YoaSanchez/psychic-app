@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { BsSearch } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 //Componentes
 import CartWidget from '../CartWidget/CartWidget';
@@ -11,9 +12,9 @@ import CartWidget from '../CartWidget/CartWidget';
 function NavBar() {
   return (
     <Navbar bg="secondary" expand="lg">
-      <Container fluid>
+      <Container>
         <Navbar.Brand href="#action0">
-          <img className='logo' src="/pngegg.png" alt="logo" />
+         <Link to='/'> <img className='logo' src="/pngegg.png" alt="logo" /> </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

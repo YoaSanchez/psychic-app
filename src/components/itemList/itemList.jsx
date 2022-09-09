@@ -1,15 +1,16 @@
+import { Row } from "react-bootstrap";
 import Item from "../item/Item";
 
-const ItemList = ({cards}) => {
+const ItemList = ({ cards }) => {
 
     return (
-        <div>
+        <Row>
             {
                 cards.map(card => {
                     return <Item card={card} />
                 })
             }
-        </div>
+        </Row>
     )
 }
 
