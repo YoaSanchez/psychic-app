@@ -13,14 +13,14 @@ function NavBar() {
   return (
     <Navbar bg="secondary" expand="lg">
       <Container>
-        <Navbar.Brand href="#action0">
-         <Link to='/'> <img className='logo' src="/pngegg.png" alt="logo" /> </Link>
+        <Navbar.Brand>
+          <Link to='/'> <img className='logo' src="/pngegg.png" alt="logo" /> </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
-            <Nav.Link href="#action1">Categorias</Nav.Link>
-            <Nav.Link href="#action2">Quienes somos</Nav.Link>
+            <Nav.Link>Categorias</Nav.Link>
+            <Nav.Link>Quienes somos</Nav.Link>
           </Nav>
 
           <CartWidget cartCount={0} />

@@ -16,7 +16,7 @@ const Item = ({ card }) => {
                     <ListGroup className="list-group-flush">
                         <Link to={`/detail/${card.id}`}><Button variant="primary">Detalles</Button></Link>
                         <ListGroup.Item>precio: ${card.price}</ListGroup.Item>
-                        <ListGroup.Item>Stock: {card.initial_quantity}</ListGroup.Item>
+                        <ListGroup.Item>Stock: {card.available_quantity}</ListGroup.Item>
                     </ListGroup>
                     <ItemCount stock={card.available_quantity} initial={1} onAdd={card.title} />
                 </Card.Body>

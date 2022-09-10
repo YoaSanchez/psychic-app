@@ -11,8 +11,8 @@ function App() {
         <NavBar />
         <br />
         <Routes>
-          <Route exact path="/" element={<ItemListContainer />} />
-          <Route  path="/detail/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/detail/:itemId" element={<ItemDetailContainer />} />
         </Routes>
       </BrowserRouter>
     </div>
