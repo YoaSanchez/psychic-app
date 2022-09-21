@@ -2,8 +2,9 @@ import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { BsPlusLg, BsDashLg } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
-function ItemCount({ stock, initial, onAdd }) {
+function ItemCount({ stock, initial, onAdd, productAdd }) {
     const [cart, setCart] = useState([])
     const [count, setCount] = useState(initial)
 
@@ -29,10 +30,12 @@ function ItemCount({ stock, initial, onAdd }) {
             <div>
                 <button onClick={() => {
                     if (stock > cart.length) {
-                        setCart([...cart, onAdd]);
+                        setCart([...cart, productAdd]);
 
                     } console.log(cart)
+
                 }} >Agregar al carrito</button>
+                <Link to='/cart'><button>ver Carrito</button></Link>
             </div>
         </div>
     );

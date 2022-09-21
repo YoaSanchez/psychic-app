@@ -1,7 +1,16 @@
+import { useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
 import ItemCount from "../ItemCount/ItemCount"
 
 const ItemDetail = ({ card }) => {
+    const [hide, setHide] = useState(true)
+
+    function hideItemCount() {
+        if (hide === true) {
+            setHide(false)
+            return <ItemCount stock={card.initial_quantity} initial={1} onAdd={card.title} />
+        }
+    }
 
     return (
         <Container key={card.id}>
@@ -15,7 +24,8 @@ const ItemDetail = ({ card }) => {
                     <div>Stock: {card.initial_quantity}</div>
                     {/* cambie available_quantity por initial_quantity para que funcione, cuando se arregle la api lo vuelvo a cambiar*/}
                     <div>Precio: ${card.price}</div>
-                    <ItemCount stock={card.initial_quantity} initial={1} onAdd={card.title} />
+                    {hideItemCount}
+                    <ItemCount stock={card.initial_quantity} initial={1} productAdd={card.title} />
                 </Col>
             </Row>
             <div>

@@ -22,7 +22,7 @@ const ItemListContainer = () => {
     }
     useEffect(() => {
         searchCards() // eslint-disable-next-line
-    }, [])
+    }, [categoryId])
 
     return (
         <Container>
