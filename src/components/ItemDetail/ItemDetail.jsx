@@ -1,15 +1,15 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { Col, Container, Row } from "react-bootstrap"
+import { context } from "react-bootstrap/esm/AccordionContext"
 import ItemCount from "../ItemCount/ItemCount"
 
-const ItemDetail = ({ card }) => {
-    const [hide, setHide] = useState(true)
 
-    function hideItemCount() {
-        if (hide === true) {
-            setHide(false)
-            return <ItemCount stock={card.initial_quantity} initial={1} onAdd={card.title} />
-        }
+const ItemDetail = ({ card }) => {
+
+    const { addItem } = useContext(context);
+
+    const onAdd = (count) => {
+        addItem(card, count);
     }
 
     return (
@@ -24,8 +24,7 @@ const ItemDetail = ({ card }) => {
                     <div>Stock: {card.initial_quantity}</div>
                     {/* cambie available_quantity por initial_quantity para que funcione, cuando se arregle la api lo vuelvo a cambiar*/}
                     <div>Precio: ${card.price}</div>
-                    {hideItemCount}
-                    <ItemCount stock={card.initial_quantity} initial={1} productAdd={card.title} />
+                    <ItemCount stock={card.initial_quantity} initial={1} onAdd={onAdd} />
                 </Col>
             </Row>
             <div>

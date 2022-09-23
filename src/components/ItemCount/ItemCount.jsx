@@ -4,7 +4,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { BsPlusLg, BsDashLg } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-function ItemCount({ stock, initial, onAdd, productAdd }) {
+function ItemCount({ stock, initial, onAdd }) {
     const [cart, setCart] = useState([])
     const [count, setCount] = useState(initial)
 
@@ -30,7 +30,7 @@ function ItemCount({ stock, initial, onAdd, productAdd }) {
             <div>
                 <button onClick={() => {
                     if (stock > cart.length) {
-                        setCart([...cart, productAdd]);
+                        setCart([...cart, onAdd]);
 
                     } console.log(cart)
 

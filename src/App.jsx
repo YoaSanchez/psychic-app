@@ -5,21 +5,25 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/navBar';
 import Home from './Home/Home';
+import CartContext from './components/Cart/CartContext';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <NavBar />
-        <br />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/category/:categoryId" element={<ItemListContainer />} />
-          <Route path="/detail/:itemId" element={<ItemDetailContainer />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      </BrowserRouter>
+      <CartContext>
+        <BrowserRouter>
+          <NavBar />
+          <br />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/category/:categoryId" element={<ItemListContainer />} />
+            <Route path="/detail/:itemId" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+      </CartContext>
     </div>
+
   );
 }
 
