@@ -37,7 +37,7 @@ function NavBar() {
             <NavDropdown title="Categorias" id="basic-nav-dropdown">
               {
                 categories.map(category => {
-                  return <Link to={`/category/${category.id}`}><NavDropdown.Item href="#action/3.3">{category.name}</NavDropdown.Item></Link>
+                  return <Link to={`/category/${category.id}`}><NavDropdown.Item key={category.id}>{category.name}</NavDropdown.Item></Link>
                 })
               }
             </NavDropdown>

@@ -5,7 +5,6 @@ import { BsPlusLg, BsDashLg } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function ItemCount({ stock, initial, onAdd }) {
-    const [cart, setCart] = useState([])
     const [count, setCount] = useState(initial)
 
     return (
@@ -28,13 +27,7 @@ function ItemCount({ stock, initial, onAdd }) {
                 </div>
             </div>
             <div>
-                <button onClick={() => {
-                    if (stock > cart.length) {
-                        setCart([...cart, onAdd]);
-
-                    } console.log(cart)
-
-                }} >Agregar al carrito</button>
+                <button onClick={() => onAdd(count)} >Agregar al carrito</button>
                 <Link to='/cart'><button>ver Carrito</button></Link>
             </div>
         </div>

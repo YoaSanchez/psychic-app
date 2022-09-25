@@ -1,12 +1,12 @@
-import { useState, useContext } from "react"
+import { useContext } from "react"
 import { Col, Container, Row } from "react-bootstrap"
-import { context } from "react-bootstrap/esm/AccordionContext"
+import { Context } from "../Cart/CartContext"
 import ItemCount from "../ItemCount/ItemCount"
 
 
 const ItemDetail = ({ card }) => {
 
-    const { addItem } = useContext(context);
+    const { addItem } = useContext(Context);
 
     const onAdd = (count) => {
         addItem(card, count);

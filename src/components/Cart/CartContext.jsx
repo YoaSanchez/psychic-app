@@ -6,8 +6,8 @@ const CartContext = ({ children }) => {
 
     const [carrito, setCarrito] = useState([]);
 
-    const addItem = (card, quantity) => {
-        card.quantity = quantity;
+    const addItem = (card, count) => {
+        card.quantity = count;
         setCarrito([...carrito, card]);
     }
     return <Context.Provider value={{ addItem }}>{children}</Context.Provider>

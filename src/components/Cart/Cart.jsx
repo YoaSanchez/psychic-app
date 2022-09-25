@@ -1,14 +1,11 @@
-
-
+import React, { useContext } from "react"
+import { Context } from "./CartContext"
+import CartItem from "./CartItem"
 
 const Cart = () => {
-
-    return (
-        <>
-            <h2>hola</h2>
-            <p>estas en la pagina del carrito</p>
-        </>
-    )
+    const { carrito } = useContext(Context)
+    console.log(carrito);
+    return carrito.map(elemento => <CartItem card={elemento} />);
 }
 
 export default Cart
