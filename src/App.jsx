@@ -9,8 +9,8 @@ import CartContext from './components/Cart/CartContext';
 
 function App() {
   return (
-    <div className="App">
-      <CartContext>
+    <CartContext>
+      <div className="App">
         <BrowserRouter>
           <NavBar />
           <br />
@@ -21,8 +21,8 @@ function App() {
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>
-      </CartContext>
-    </div>
+      </div>
+    </CartContext>
 
   );
 }
