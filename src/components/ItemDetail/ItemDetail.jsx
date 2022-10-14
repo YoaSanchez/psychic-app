@@ -3,38 +3,32 @@ import { Col, Container, Row } from "react-bootstrap"
 import { Context } from "../Cart/CartContext"
 import ItemCount from "../ItemCount/ItemCount"
 
-
-const ItemDetail = ({ card }) => {
-
+const ItemDetail = ({ card, id }) => {
     const { addItem } = useContext(Context);
 
     const onAdd = (count) => {
-        addItem(card, count);
+        addItem(card, id, count);
     }
 
     return (
-        <Container key={card.id}>
+        <Container key={id}>
             <Row>
                 <Col>
                     <img src={card.thumbnail} alt={card.title} />
                 </Col>
                 <Col>
                     <h2>{card.title}</h2>
-                    <div>SKU: {card.id}</div>
-                    <div>Stock: {card.initial_quantity}</div>
-                    {/* cambie available_quantity por initial_quantity para que funcione, cuando se arregle la api lo vuelvo a cambiar*/}
+                    <div>Stock: {card.stock}</div>
                     <div>Precio: ${card.price}</div>
-                    <ItemCount stock={card.initial_quantity} initial={1} onAdd={onAdd} />
+                    <ItemCount stock={card.stock} initial={1} onAdd={onAdd} />  {/* en 'initial' quiero poner {card.minimo} pero se rompe y no aparece nada no se porque; la idea seria que la categoria porMayor exija comprar un minimo mas alto que los de la categoria alDetalle, en firestore esta el minimo de 1 para alDetalle y mas alto para porMayor */}
                 </Col>
             </Row>
             <div>
                 <h4>
-                    card.description
+                    Descripcion
                 </h4>
                 <div>
-                    aqui deberia estar alguna descripcion pero en la api no hay de donde encontrarla, asique lo resolvere despues.
-                    <br />
-                    tiempo despues de poner esto, encontre como poner la descripcion pero va mas alla de lo que se hasta el momento y lo que logre encontrar en internet, en clase lo preguntare
+                    {card.description}
                 </div>
             </div>
         </Container>

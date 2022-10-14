@@ -3,13 +3,12 @@ import { createContext, useState } from "react";
 export const Context = createContext();
 
 const CartContext = ({ children }) => {
-
     const [carrito, setCarrito] = useState([]);
 
-    const addItem = (card, count) => {
-        const anterior = isInCart(card.id);
+    const addItem = (card, id, count) => {
+        const anterior = isInCart(id);
         if (anterior) {
-            const arreglo = carrito.filter((e) => e.id !== card.id);
+            const arreglo = carrito.filter((e) => e.id !== id);
             card.quantity = count + anterior.quantity;
             arreglo.push(card);
             setCarrito(arreglo);
@@ -31,7 +30,7 @@ const CartContext = ({ children }) => {
         setCarrito(carrito.filter((e) => e.id !== itemId))
     }
 
-    const total = () =>{
+    const total = () => {
         let totalPrice = 0;
         carrito.forEach((card) => {
             totalPrice = totalPrice + (card.price * card.quantity);

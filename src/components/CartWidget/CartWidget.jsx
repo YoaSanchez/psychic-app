@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import { Context } from '../Cart/CartContext';
 
 const CartWidget = () => {
-
     const { carrito } = useContext(Context);
 
     return (

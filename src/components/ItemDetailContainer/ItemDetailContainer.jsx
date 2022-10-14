@@ -1,30 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
-
     const [card, setCard] = useState([])
-
     const { itemId } = useParams();
 
-    const searchCard = async () => {
-
-        try {
-            const response = await fetch(`https://api.mercadolibre.com/items/${itemId}`)
-            const data = await response.json();
-            setCard(data)
-        } catch (e) {
-            console.log(e)
-        }
-    }
     useEffect(() => {
-        searchCard() // eslint-disable-next-line
-    }, [])
+        if (itemId) {
+            const db = getFirestore();
+            const itemRef = doc(db, 'items', itemId.trim());
+            getDoc(itemRef).then((snapshot) => {
+                setCard(snapshot.data());
+            });
+        }
+    }, [itemId]);
 
     return (
-        <ItemDetail card={card} />
+        <ItemDetail card={card} id={itemId} />
     )
 }
 
