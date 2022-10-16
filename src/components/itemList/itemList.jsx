@@ -1,5 +1,5 @@
 import { Row } from "react-bootstrap";
-import Item from "../item/Item";
+import Item from "../Item/Item";
 
 const ItemList = ({ cards }) => {
 

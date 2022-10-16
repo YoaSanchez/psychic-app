@@ -2,7 +2,7 @@ import { collection, getDocs, getFirestore, query, where } from "firebase/firest
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import ItemList from '../itemList/itemList';
+import ItemList from '../ItemList/ItemList';
 
 const ItemListContainer = () => {
     const [cards, setCards] = useState([])
@@ -18,7 +18,7 @@ const ItemListContainer = () => {
                 ...doc.data(),
             }));
             setCards(docs);
-        });
+        });                 // eslint-disable-next-line
     }, [cards]);
 
     return (
